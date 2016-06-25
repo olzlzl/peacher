@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.moui.manager.db.Mapper">
+  <select id="selectManagerInfoByUserId" resultType="kr.moui.manager.db.ManagerInfo" parameterType="String">
+    select * from manager_info where user_id = #{user_id}
+  </select>
+  <select id="searchStudentInfo" resultType="kr.moui.manager.db.StudentInfo" parameterType="String">
+  	select student_name from student_info where student_name like #{query} or parent_name like #{query} or student_phone like #{query} or parent_phone like #{query} or home_phone like #{query} or school_name like #{query};
+  </select>
+</mapper>
