@@ -1,31 +1,31 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>click demo</title>
-  <style>
-  p {
-    color: red;
-    margin: 5px;
-    cursor: pointer;
-  }
-  p:hover {
-    background: yellow;
-  }
-  </style>
-  <script src="js/jquery-1.11.3.min.js"></script>
+	<meta charset="utf-8">
+	<title>에디터 만들기</title>
+	<link rel="stylesheet" href="css/common.css" type="text/css">
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery.form.js"></script>
 </head>
 <body>
- 
-<p>First Paragraph</p>
-<p>Second Paragraph</p>
-<p>Yet one more Paragraph</p>
- 
-<script>
-$( "p" ).click(function() {
-  alert("1");
-});
-</script>
- 
+<div id="controlArea">
+	<button id="editToggleButton">저장하기</button> 
+	<button id="insertTextButton">지문</button>
+	<button id="removeTextTagButton">지문 태그 제거</button>
+	<button id="insertImageButton">지문 이미지 삽입</button>
+	<form id="fileUploadForm" action="file_upload.html" method="post" enctype="multipart/form-data">
+  		<input type="file" name="pic">
+  		<button id="fileUploadButton">이미지 삽입</button>
+	</form>
+</div>
+<div id="insertTextWrapper">
+	<p class="areaTitle">지문편집기</p>
+	<div id="insertTextArea" contentEditable=true></div>
+</div>
+<div class="editWrapper">
+	<p class="areaTitle">시험지 편집기</p>
+	<div id="editArea" contentEditable=true></div>	
+</div>
+<script type="text/javascript" src="js/common.js"></script>
 </body>
 </html>

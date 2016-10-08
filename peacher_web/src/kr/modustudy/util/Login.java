@@ -1,4 +1,4 @@
-package kr.moui.manager.util;
+package kr.modustudy.util;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -19,7 +19,7 @@ public class Login {
 	
 	public static String getTargetPath(String id, String path) {
 		if(id==null) {
-			return "/jsp/login.jsp";
+			return "/jsp/index.jsp";
 		} else {
 			return path;
 		}

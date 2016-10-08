@@ -1,4 +1,4 @@
-package kr.moui.manager.controller;
+package kr.modustudy.controller;
 
 import java.io.IOException;
 

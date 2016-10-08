@@ -11,13 +11,13 @@
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/edenschool_manager"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/moduschool"/>
         <property name="username" value="root"/>
-        <property name="password" value="dkwkwk0070"/>
+        <property name="password" value="dkwkwk0070!"/>
       </dataSource>
     </environment>
   </environments>
   <mappers>
-    <mapper resource="kr/moui/manager/db/mapper.xml"/>
+    <mapper resource="kr/modustudy/db/mapper.xml"/>
   </mappers>
 </configuration>

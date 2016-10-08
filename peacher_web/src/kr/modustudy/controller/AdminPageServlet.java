@@ -10,24 +10,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.modustudy.util.Login;
+import kr.modustudy.analysis.TestAnalyzer;
+
 
 /**
- * Servlet implementation class MainServlet
+ * Servlet implementation class AnalysisPageServlet
  */
-@WebServlet("/index.html")
-public class IndexPageServlet extends HttpServlet {
+@WebServlet("/admin.html")
+public class AdminPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IndexPageServlet() {
+    public AdminPageServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
+    /**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -45,9 +46,8 @@ public class IndexPageServlet extends HttpServlet {
 	
 	protected void doAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ServletContext sc = getServletContext();
-        String id = Login.getIdFromSession(request);
-        String targetPath = Login.getTargetPath(id, "/jsp/index.jsp"); 
-        request.setAttribute("id", id);
+
+        String targetPath = "/jsp/admin.jsp"; 
         RequestDispatcher rd = sc.getRequestDispatcher(targetPath);
         rd.forward(request, response);
 	}

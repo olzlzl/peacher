@@ -2,11 +2,27 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.moui.manager.db.Mapper">
-  <select id="selectManagerInfoByUserId" resultType="kr.moui.manager.db.ManagerInfo" parameterType="String">
-    select * from manager_info where user_id = #{user_id}
+<mapper namespace="kr.modustudy.db.Mapper">
+  <select id="selectTestInfoList" resultType="kr.modustudy.db.TestInfo" parameterType="kr.modustudy.db.TestInfo">
+  	select test_id, grade, year, month, auth from test_info;
   </select>
-  <select id="searchStudentInfo" resultType="kr.moui.manager.db.StudentInfo" parameterType="String">
-  	select student_name from student_info where student_name like #{query} or parent_name like #{query} or student_phone like #{query} or parent_phone like #{query} or home_phone like #{query} or school_name like #{query};
+  <select id="selectTestInfoListByGrade" resultType="kr.modustudy.db.TestInfo" parameterType="kr.modustudy.db.TestInfo">
+  	select test_id, grade, year, month, auth from test_info where grade=#{grade};
   </select>
+  <select id="selectTestInfoListByYear" resultType="kr.modustudy.db.TestInfo" parameterType="kr.modustudy.db.TestInfo">
+  	select test_id, grade, year, month, auth from test_info where year=#{year};
+  </select>
+  <select id="selectTestInfoListByGradAndYear" resultType="kr.modustudy.db.TestInfo" parameterType="kr.modustudy.db.TestInfo">
+  	select test_id, grade, year, month, auth from test_info where grade=#{grade} and year=#{year};
+  </select>
+  <select id="selectCountTestInfo" resultType="int" parameterType="kr.modustudy.db.TestInfo">
+  	select count(0) as cnt from test_info where grade=#{grade} and year=#{year} and month=#{month};
+  </select>
+  <insert id="insertTestInfo" parameterType="kr.modustudy.db.TestInfo">
+  	INSERT INTO `moduschool`.`test_info`(`grade`,`year`,`month`,`auth`)
+	VALUES(#{grade},#{year},#{month},#{auth});
+  </insert>
+  <delete id="deleteTestInfo">
+  	delete from test_info where test_id=#{test_id};
+  </delete>
 </mapper>
